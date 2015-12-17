@@ -88,11 +88,12 @@ $(function () {
       ball.viewer = new ThetaViewer (ball, null, result.picture.position, '000000', 1, {max: 500, min: 100});
       ball.viewer.autoRotate = result.picture.rotated;
       ball.viewer.images = [result.picture.url];
-      ball.viewer.load ();
+      ball.viewer.load (function () {
+        window.hideLoading ();
+      });
       ball.viewer.position = result.picture.position;
 
       setTimeout (function () { $move.remove (); }, 3500);
-      window.hideLoading ();
     });
   }
   window.onhashchange = function (b) {
