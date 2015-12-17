@@ -15,6 +15,7 @@ Demo: [http://comdan66.github.io/ThetaS/index.html](http://comdan66.github.io/Th
 ## 簡介
 * 純粹因為買了一台 Ricoh Theta S，就想說來寫一個 360度 全視角的相簿！
 * 搭配 Ricoh Theta S 記錄環景、全景、360度、小星球(Stereographics Projection) 的個人全景相簿！
+* API 後台 Repository: [https://github.com/comdan66/360](https://github.com/comdan66/360)
 
 <br/>
 ## RICOH THETA S
