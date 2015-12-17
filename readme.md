@@ -18,10 +18,8 @@ Demo: [http://comdan66.github.io/ThetaS/index.html](http://comdan66.github.io/Th
 
 <br/>
 ## RICOH THETA S
-* ㄜ.. 他就是 [RICOH THETA S](https://theta360.com/ct/)  
-￬ ￬ ￬ ￬ ￬ ￬ ￬ ￬ ￬ ￬ ￬ ￬ ￬ ￬ ￬ ￬ ￬ ￬   
+* ㄜ.. 他就是 ￫ [RICOH THETA S](https://theta360.com/ct/)  
 
-[![OA's Theta S 全景相簿](img/readme/ricoh_512.jpg)](https://theta360.com/ct/)
 
 <br/>
 ## 關於
