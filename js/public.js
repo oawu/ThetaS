@@ -39,83 +39,12 @@ if (ENV == 'dev') {
 
 window.titleText = "OA's Theta S 全景相簿";
 window.pictures = [
-    {
-      token: '01',
-      cover: window.url + 'img/pictures/01.png',
-      url: window.url + 'img/pictures/01.jpg',
-      location: 0,
-      position: { x: 252.80464049232, y: 96.021438987204, z: -91.857245628037 },
-      rotated: 0,
-      next: '02',
-      prev: '06',
-      latitude: -1,
-      longitude: -1
-    },
-    {
-      token: '02',
-      cover: window.url + 'img/pictures/02.png',
-      url: window.url + 'img/pictures/02.jpg',
-      pv: Math.floor ((Math.random () * 10) + 1),
-      location: 1,
-      position: { x: 0.0001643304293071, y: -369.09828822132, z: 0.00033049819431155 },
-      rotated: 1,
-      next: '03',
-      prev: '01',
-      latitude: 22.997316666667,
-      longitude: 120.19708888889
-    },
-    {
-      token: '03',
-      cover: window.url + 'img/pictures/03.png',
-      url: window.url + 'img/pictures/03.jpg',
-      pv: Math.floor ((Math.random () * 10) + 1),
-      location: 0,
-      position: { x: 201.13054925961, y: 240.83197640446, z: -37.688548706924 },
-      rotated: 1,
-      next: '04',
-      prev: '02',
-      latitude: -1,
-      longitude: -1
-    },
-    {
-      token: '04',
-      cover: window.url + 'img/pictures/04.png',
-      url: window.url + 'img/pictures/04.jpg',
-      pv: Math.floor ((Math.random () * 10) + 1),
-      location: 0,
-      position: { x: -0.00030697186576778, y: 316.45564486375, z: 7.6892449520424e-5 },
-      rotated: 1,
-      next: '05',
-      prev: '03',
-      latitude: -1,
-      longitude: -1
-    },
-    {
-      token: '05',
-      cover: window.url + 'img/pictures/05.png',
-      url: window.url + 'img/pictures/05.jpg',
-      pv: Math.floor ((Math.random () * 10) + 1),
-      location: 1,
-      position: { x: 97.806205460123, y: 355.36849167091, z: -3.6250932445754 },
-      rotated: 1,
-      next: '06',
-      prev: '04',
-      latitude: 22.996511111111,
-      longitude: 120.19689166667
-    },
-    {
-      token: '06',
-      cover: window.url + 'img/pictures/06.png',
-      url: window.url + 'img/pictures/06.jpg',
-      pv: Math.floor ((Math.random () * 10) + 1),
-      location: 1,
-      position: { x: 0.00012905318340502, y: 270.95487088424, z: 0.00023824738804229 },
-      rotated: 1,
-      next: '01',
-      prev: '05',
-      latitude: 25.079861111111,
-      longitude: 121.56735277778
-    },
+    { token: '01', cover: window.url + 'img/pictures/01.png', url: window.url + 'img/pictures/01.jpg', location: 0, position: { x: 252.80464049232, y: 96.021438987204, z: -91.857245628037 }, rotated: 0, next: '02', prev: '06', latitude: -1, longitude: -1 },
+    { token: '02', cover: window.url + 'img/pictures/02.png', url: window.url + 'img/pictures/02.jpg', pv: Math.floor ((Math.random () * 10) + 1), location: 1, position: { x: 0.0001643304293071, y: -369.09828822132, z: 0.00033049819431155 }, rotated: 1, next: '03', prev: '01', latitude: 22.997316666667, longitude: 120.19708888889 },
+    { token: '03', cover: window.url + 'img/pictures/03.png', url: window.url + 'img/pictures/03.jpg', pv: Math.floor ((Math.random () * 10) + 1), location: 0, position: { x: 201.13054925961, y: 240.83197640446, z: -37.688548706924 }, rotated: 1, next: '04', prev: '02', latitude: -1, longitude: -1 },
+    { token: '04', cover: window.url + 'img/pictures/04.png', url: window.url + 'img/pictures/04.jpg', pv: Math.floor ((Math.random () * 10) + 1), location: 0, position: { x: -0.00030697186576778, y: 316.45564486375, z: 7.6892449520424e-5 }, rotated: 1, next: '05', prev: '03', latitude: -1, longitude: -1 },
+    { token: '05', cover: window.url + 'img/pictures/05.png', url: window.url + 'img/pictures/05.jpg', pv: Math.floor ((Math.random () * 10) + 1), location: 1, position: { x: 97.806205460123, y: 355.36849167091, z: -3.6250932445754 }, rotated: 1, next: '06', prev: '04', latitude: 22.996511111111, longitude: 120.19689166667 },
+    { token: '06', cover: window.url + 'img/pictures/06.png', url: window.url + 'img/pictures/06.jpg', pv: Math.floor ((Math.random () * 10) + 1), location: 1, position: { x: 0.00012905318340502, y: 270.95487088424, z: 0.00023824738804229 }, rotated: 1, next: '01', prev: '05', latitude: 25.079861111111, longitude: 121.56735277778 },
   ];
 
 window.ajaxError = function (result) {
@@ -127,6 +56,27 @@ window.ajaxError = function (result) {
   }
 };
 $(function () {
+  var now = document.URL.replace (/^.*[\\\/]/, '').replace (/#.*/, '');
+  now = now.length ? now : 'index.html';
+
+  var js = {
+    'index.html': {
+      js: ['js/index.js'],
+      css: ['css/public.css', 'css/index.css']
+    },
+    'content.html': {
+      js: ['js/content.js'],
+      css: ['css/public.css', 'css/content.css']
+    },
+    'location.html': {
+      js: ['js/location.js'],
+      css: ['css/public.css', 'css/location.css']
+    },
+  };
+  
+  js[now]['css'].map (function (t) { $('<link />', { rel: 'stylesheet', type: 'text/css', href: t }).appendTo ('head'); });
+  $.when.apply ($, js[now]['js'].map (function (t) { return $.getScript (t); }));
+
   window.mainLoading = $('#loading');
   window.showLoading = function (callback) {
     this.mainLoading.fadeIn (function () {
@@ -158,13 +108,13 @@ $(function () {
   window.body = $('body');
   window.title = $('title').text (window.titleText);
 
-  var now = document.URL.replace (/^.*[\\\/]/, '').replace (/#.*/, '');
-
   if (now == 'location.html')
     return;
 
   window.body.append ($('<nav />').append (
-      $('<a />').attr ('href', '').text ('首頁')
+      now == 'content.html' ? $('<a />').attr ('href', window.url).addClass ('back').addClass ('icon-arrow-left') : null
+    ).append (
+      $('<a />').attr ('href', window.url).text ('首頁')
     ).append (
       $('<a />').attr ('href', '').text ('關於')
     ));
@@ -173,5 +123,4 @@ $(function () {
 
   if (now != 'content.html')
     window.container.append ($('<div />').attr ('id', 'footer').append ($('<div />')).append ($('<div />').append ($('<div />').text (window.title + " © 2015")).append ($('<div />').html ('如有相關問題歡迎與<a href="https://www.facebook.com/comdan66" target="_blank">作者</a>討論。'))).append ($('<div />')));
-  
 });
