@@ -6,18 +6,19 @@
 @import "_oa";
 
 @include font-face("Monaco", font-files("monaco/monaco.ttf", "monaco/monaco.otf"));
-// @include font-face("icomoon", font-files("icomoon/icomoon.eot", "icomoon/icomoon.woff", "icomoon/icomoon.ttf", "icomoon/icomoon.svg"));
-// [class^="icon-"], [class*=" icon-"] {
-//   font-family: 'icomoon', Monaco, "微軟正黑體", "Microsoft JhengHei";
-//   speak: none;
-//   font-style: normal;
-//   font-weight: normal;
-//   font-variant: normal;
-//   text-transform: none;
-//   line-height: 1;
+@include font-face("icomoon", font-files("icomoon/icomoon.eot", "icomoon/icomoon.woff", "icomoon/icomoon.ttf", "icomoon/icomoon.svg"));
 
-//   @include font-smoothing(antialiased);
-// }
+[class^="icon-"], [class*=" icon-"] {
+  font-family: 'icomoon', "微軟正黑體", "Microsoft JhengHei", Monaco;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  @include font-smoothing(antialiased);
+}
 
 * {
   &, &:after, &:before {
@@ -39,8 +40,8 @@ html {
     width: 100%;
     height: 100%;
     font-size: medium;
-    font-family: Monaco, "微軟正黑體", "Microsoft JhengHei";
-    background: $mainBackgroundColor $mainBackgroundImage;
+    font-family: "微軟正黑體", "Microsoft JhengHei", Monaco;
+    background: $mainBackgroundColor;
     color: rgba(50, 50, 50, 0.8);
 
     @include font-smoothing(antialiased);
@@ -49,12 +50,309 @@ html {
       position: relative;
       display: block;
       margin: 0 auto;
-      max-width: $mainWidth;
+      padding: 0;
+    }
+  }
+}
 
-      padding: 0 10px;
+#loading {
+  position: fixed;
+  top: 0;
+  left: 0;
 
-      @media screen and (min-width: #{$mainWidth}) {
-        padding: 0;
+  @include loading();
+  background-color: $mainBackgroundColor;
+}
+a[href^="http://maps.google.com/maps"], a[href^="https://maps.google.com/maps"] {
+  display: none !important;
+}
+
+.gm-style-cc { display: none; }.icon-move:before { content: "\e900" }.icon-eye2:before { content: "\e903" }.icon-lock:before { content: "\f06a" }.icon-warning:before { content: "\e902" }.icon-info-outline:before { content: "\e901" }.icon-screen_rotation:before { content: "\e1c1" }.icon-rotate_90_degrees_ccw:before { content: "\e418" }.icon-3d_rotation:before { content: "\e84d" }.icon-link-external:before { content: "\e605" }.icon-link:before { content: "\e606" }.icon-chevron-right:before { content: "\e60a" }.icon-chevron-left:before { content: "\e60b" }.icon-x:before { content: "\e625" }.icon-eye-blocked:before { content: "\e62a" }.icon-location:before { content: "\e630" }.icon-mail-forward:before { content: "\e632" }.icon-share2:before { content: "\e633" }.icon-arrow-left:before { content: "\e634" }.icon-eye:before { content: "\e803" }.icon-arrow-right2:before { content: "\e804" }.icon-pencil2:before { content: "\e906" }.icon-bin:before { content: "\e9ac" }
+
+
+._m {
+  $h: 140px;
+  $w: 250px;
+  position: absolute;
+  top: calc(((100% - #{$h}) / 5) * 2);
+  left: calc((100% - #{$w}) / 2);
+  display: inline-block;
+  width: $w;
+  line-height: 25px;
+  border: 1px solid rgba(255, 255, 255, .3);
+  font-size: 20px;
+  padding: 0 10px;
+  padding-bottom: 20px;
+  background-color: rgba(0, 0, 0, 1);
+  color: rgba(255, 255, 255, .75);
+  @include border-radius(5px);
+  z-index: 99999;
+
+  &:before {
+    display: inline-block;
+    width: 100%;
+    font-size: 55px;
+    margin-bottom: 10px;
+    line-height: 60px;
+    padding: 5px;
+  }
+
+  @include border-radius(0);
+  @include opacity(0);
+  @include animation(_m_s 5s);
+  @include keyframes(_m_s){
+    0% { top: -$h; @include opacity(0); }
+    5% { top: -$h; @include opacity(0); }
+    15% { top: 0 + $h - 5px; @include opacity(1); }
+    90% { top: 0 + $h - 5px; @include opacity(1); }
+    100% { top: -$h; @include opacity(0); }
+  }
+}
+
+$navHeight: 40px;
+$navShadow: 0 0 2px rgba(255, 255, 255, .25), 0 0 1px rgba(255, 255, 255, .25);
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: inline-block;
+  width: 100%;
+  height: $navHeight;
+  z-index: 999;
+
+  background-color: rgba(0, 0, 0, .7);
+  @include clearfix();
+  @include box-shadow($navShadow);
+
+  a {
+    @include a(0, false, rgba(255, 255, 255, 1), rgba(255, 255, 255, 1));
+    float: left;
+    display: inline-block;
+    padding: 3px 5px;
+    margin: 5px;
+
+    &.back {
+      font-size: 30px;
+      font-weight: normal;
+      padding: 0 5px;
+      @media screen and (min-width: 0) and (max-width: #{$mediaMobileWidth - 1px}) {
+        + a {
+          display: none;
+        }
+      }
+      @media screen and (min-width: $mediaMobileWidth) {
+        display: none;
+      }
+    }
+    
+    &:hover {
+      font-weight: bold;
+    }
+    &:last-child {
+      float: right;
+    }
+    &.active {
+      position: relative;
+
+      &:after {
+        content: '';
+        display: inline-block;
+        width: 100%;
+        height: 5px;
+        position: absolute;
+        bottom: -9px;
+        left: 0;
+        background-color: rgba(0, 0, 0, 1);
+        border: 1px solid rgba(187, 187, 187, 1);
+        @include border-radius(2px);
+      }
+    }
+  }
+}
+
+ul.pagination {
+  margin: 0;
+  padding: 0;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  list-style-type: none;
+  @include clearfix();
+
+  li {
+    float: left;
+    margin: 5px;
+    &.l, &.f, &.p, &.n {
+      a {
+        padding: 0 10px;
+      }
+    }
+    a {
+      display: inline-block;
+      padding: 0 5px;
+      min-width: 30px;
+      line-height: 28px;
+
+      color: rgba(95, 95, 95, 1);
+      background-color: rgba(0, 0, 0, 1);
+      border: 1px solid rgba(193, 194, 198, 1);
+      font-size: 14px;
+      font-weight: bold;
+
+      text-decoration: none;
+      text-align: center;
+
+      @include transition(all .3s);
+      @include border-radius(20px);
+
+      &:hover {
+        border: 1px solid rgba(193, 194, 198, 1);
+        background-color: rgba(193, 194, 198, 1);
+        color: rgba(39, 40, 34, 1);
+      }
+    }
+    &.active {
+      a {
+        border: 1px solid rgba(193, 194, 198, 1);
+        background-color: rgba(193, 194, 198, 1);
+        color: rgba(39, 40, 34, 1);
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: #{450px - 1px}) {
+  ul.pagination {
+    position: relative;
+    padding-top: 30px;
+
+    li {
+      &.p, &.n {
+        position: absolute;
+        top: 0;
+        color: rgba(255, 255, 255, 0.5);
+
+        &:before {
+          font-family: 'icomoon', "微軟正黑體", "Microsoft JhengHei", Monaco;
+          position: absolute;
+          top: 5px;
+          font-size: 16px;
+          width: 15px;
+          @include transition(all .3s);
+        }
+        &:hover {
+          color: rgba(255, 255, 255, 1);
+        }
+        a {
+          border: 0;
+          background-color: rgba(255, 255, 255, 0);
+          width: 100%;
+          @include border-radius(0);
+          @include a(1px, true, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 1));
+          padding: 0 10px;
+
+          &:hover {
+            border: 0 !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 1) !important;
+          }
+        }
+      }
+      &.p {
+        left: 0;
+        text-align: left;
+        padding-left: 10px;
+
+        &:before {
+          content: "\e60b";
+          left: 0;
+        }
+      }
+      &.n {
+        right: 0;
+        text-align: right;
+        padding-right: 10px;
+
+        &:before {
+          content: "\e60a";
+          right: 0;
+        }
+      }
+      &:not(.p):not(.n) {
+        display: none;
+      }
+      a {
+        font-size: 15px;
+      }
+    } 
+  } 
+}
+@media screen and (min-width: 450px) and (max-width: #{590px - 1px}) {
+  ul.pagination {
+    li {
+      &.f, &.l {
+        display: none;
+      }      
+    }
+  }
+}
+
+#footer {
+  margin: 0 auto;
+  padding: 50px 0;
+  @include clearfix();
+
+  @media screen and (min-width: 0px) and (max-width: #{$mediaMiniMobileWidth - 1px}) {
+    padding-top: 50px;
+    $footerWidth: 150px;
+    > div {
+      &:first-child, &:last-child {
+        width: calc(50% - #{$footerWidth / 2});
+        margin-top: 40px !important;
+      }
+      &:not(:first-child):not(:last-child) {
+        font-size: 14px;
+        width: $footerWidth;
+      }
+    }
+  }
+  @media screen and (min-width: $mediaMiniMobileWidth) {
+    padding-top: 100px;
+    $footerWidth: 300px;
+    > div {
+      &:first-child, &:last-child {
+        width: calc(50% - #{$footerWidth / 2});
+      }
+      &:not(:first-child):not(:last-child) {
+        width: $footerWidth;
+      }
+    }
+  }
+
+  > div {
+    float: left;
+    height: 100%;
+
+    &:first-child, &:last-child {
+      display: inline-block;
+      background-color: rgba(255, 255, 255, .4);
+      height: 1px;
+      margin-top: 20px;
+    }
+    &:not(:first-child):not(:last-child) {
+      display: inline-block;
+
+      > div {
+        &:first-child {
+          color: rgba(255, 255, 255, .7);
+          font-weight: bold;
+        }
+        &:last-child {
+          margin-top: 5px;
+          color: rgba(255, 255, 255, .6);
+          a {
+            @include a(1px, false, rgba(255, 255, 255, .8), rgba(255, 255, 255, 1));
+          }
+        }
       }
     }
   }
