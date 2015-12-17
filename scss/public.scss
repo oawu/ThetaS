@@ -34,7 +34,6 @@ html {
 
   body {
     position: relative;
-    display: inline-block;
     text-align: center;
     margin: 0;
     width: 100%;
@@ -45,7 +44,7 @@ html {
     color: rgba(50, 50, 50, 0.8);
 
     @include font-smoothing(antialiased);
-    
+
     #container {
       position: relative;
       display: block;
@@ -132,7 +131,7 @@ nav {
     padding: 3px 5px;
     margin: 5px;
 
-    &.back {
+    &.b {
       font-size: 30px;
       font-weight: normal;
       padding: 0 5px;
@@ -149,7 +148,7 @@ nav {
     &:hover {
       font-weight: bold;
     }
-    &:last-child {
+    &.r {
       float: right;
     }
     &.active {
