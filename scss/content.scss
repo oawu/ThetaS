@@ -107,7 +107,7 @@ html {
     100% { @include opacity(0); }
   }
 }
-label[for='visibled'], label[for='rotated'], #cover, #views, #share {
+#views, #share {
   @include switch(true, 'black');
   font-weight: normal;
   position: absolute;
@@ -136,10 +136,7 @@ label[for='visibled'], label[for='rotated'], #cover, #views, #share {
     display: inline-block;
   }
 }
-label[for='rotated'] {
-  top: 130px;
-}
-#cover, #share {
+#share {
   top: 180px;
   display: inline-block;
   font-size: 25px;
@@ -176,28 +173,4 @@ label[for='rotated'] {
   right: 10px;
   padding: 8px 15px;
   font-size: 25px;
-}
-#warning {
-  $h: 140px;
-  $w: 250px;
-  position: absolute;
-  top: calc(((100% - #{$h}) / 5) * 2);
-  left: calc((100% - #{$w}) / 2);
-  display: inline-block;
-  width: $w;
-  height: $h;
-  line-height: 25px;
-  font-size: 20px;
-  background-color: rgba(0, 0, 0, .7);
-  color: rgba(255, 255, 255, .75);
-  @include border-radius(5px);
-
-  &:before {
-    display: inline-block;
-    width: 100%;
-    font-size: 55px;
-    margin-bottom: 10px;
-    line-height: 60px;
-    padding: 5px;
-  }
 }
