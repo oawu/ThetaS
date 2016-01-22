@@ -104,7 +104,7 @@ $(function () {
 
   if (now == 'location.html') return;
 
-  window.body.append ($('<nav />').append (
+  var $nav = $('<nav />').addClass ('s').append (
     now == 'content.html' ? $('<a />').attr ('href', window.url).addClass ('b').addClass ('icon-arrow-left') : null
   ).append (
     $('<a />').attr ('href', window.url).text ('首頁')
@@ -112,7 +112,18 @@ $(function () {
     $('<a />').addClass ('r').attr ('href', window.url + 'about.html').text ('關於')
   ).append (
     $('<a />').addClass ('r').attr ('target', '_blank').attr ('href', 'https://github.com/comdan66/ThetaS').text ('GitHub')
-  ));
+  ).appendTo (window.body)
+
+  $(window).scroll (function () {
+    var t = $(this).scrollTop ();
+    var l = $(this).get (0).l ? $(this).get (0).l : 0;
+    if (t < 51 || t < l) {
+      if (!$nav.hasClass ('s')) $nav.addClass('s');
+    } else {
+      if ($nav.hasClass ('s')) $nav.removeClass ('s');
+    }
+    $(this).get (0).l = t;
+  });
 
   window.container = $('<div />').attr ('id', 'container').appendTo (window.body);
 
