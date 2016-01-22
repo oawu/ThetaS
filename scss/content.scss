@@ -107,7 +107,7 @@ html {
     100% { @include opacity(0); }
   }
 }
-#views, #share {
+#views, #share, #download {
   @include switch(true, 'black');
   font-weight: normal;
   position: absolute;
@@ -136,7 +136,7 @@ html {
     display: inline-block;
   }
 }
-#share {
+#share, #download {
   top: 180px;
   display: inline-block;
   font-size: 25px;
@@ -167,10 +167,13 @@ html {
     color: rgba(255, 255, 255, .8);
   }
 }
-#share {
+#share, #download {
   top: 50px;
   left: auto;
   right: 10px;
   padding: 8px 15px;
   font-size: 25px;
+}
+#download {
+  top: 100px;
 }

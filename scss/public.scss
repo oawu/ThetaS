@@ -66,7 +66,10 @@ a[href^="http://maps.google.com/maps"], a[href^="https://maps.google.com/maps"] 
   display: none !important;
 }
 
-.gm-style-cc { display: none; }.icon-move:before { content: "\e900" }.icon-eye2:before { content: "\e903" }.icon-lock:before { content: "\f06a" }.icon-warning:before { content: "\e902" }.icon-info-outline:before { content: "\e901" }.icon-screen_rotation:before { content: "\e1c1" }.icon-rotate_90_degrees_ccw:before { content: "\e418" }.icon-3d_rotation:before { content: "\e84d" }.icon-link-external:before { content: "\e605" }.icon-link:before { content: "\e606" }.icon-chevron-right:before { content: "\e60a" }.icon-chevron-left:before { content: "\e60b" }.icon-x:before { content: "\e625" }.icon-eye-blocked:before { content: "\e62a" }.icon-location:before { content: "\e630" }.icon-mail-forward:before { content: "\e632" }.icon-share2:before { content: "\e633" }.icon-arrow-left:before { content: "\e634" }.icon-eye:before { content: "\e803" }.icon-arrow-right2:before { content: "\e804" }.icon-pencil2:before { content: "\e906" }.icon-bin:before { content: "\e9ac" }
+.gm-style-cc { display: none; }
+.icon-screen_rotation:before { content: "\e1c1"; }.icon-rotate_90_degrees_ccw:before { content: "\e418"; }.icon-link-external:before { content: "\e605"; }.icon-link:before { content: "\e606"; }.icon-chevron-right:before { content: "\e60a"; }.icon-chevron-left:before { content: "\e60b"; }.icon-x:before { content: "\e625"; }.icon-eye-blocked:before { content: "\e62a"; }.icon-location:before { content: "\e630"; }.icon-mail-forward:before { content: "\e632"; }.icon-share2:before { content: "\e633"; }.icon-arrow-left:before { content: "\e634"; }.icon-eye:before { content: "\e803"; }.icon-arrow-right2:before { content: "\e804"; }.icon-3d_rotation:before { content: "\e84d"; }.icon-move:before { content: "\e900"; }.icon-info-outline:before { content: "\e901"; }.icon-warning:before { content: "\e902"; }.icon-eye2:before { content: "\e903"; }.icon-pencil2:before { content: "\e906"; }.icon-bin:before { content: "\e9ac"; }.icon-lock:before { content: "\f06a"; }.icon-download:before { content: "\e904"; }
+
+
 
 
 ._m {

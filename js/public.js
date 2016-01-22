@@ -40,7 +40,7 @@ if (ENV == 'dev') {
 
 window.titleText = "OA's Theta S 全景相簿";
 window.pictures = [
-    { token: '01', cover: window.url + 'img/pictures/01.png', url: window.url + 'img/pictures/01.jpg', location: 0, position: { x: 252.80464049232, y: 96.021438987204, z: -91.857245628037 }, rotated: 0, next: '02', prev: '06', latitude: -1, longitude: -1 },
+    { token: '01', cover: window.url + 'img/pictures/01.png', url: window.url + 'img/pictures/01.jpg', pv: Math.floor ((Math.random () * 10) + 1), location: 0, position: { x: 252.80464049232, y: 96.021438987204, z: -91.857245628037 }, rotated: 0, next: '02', prev: '06', latitude: -1, longitude: -1 },
     { token: '02', cover: window.url + 'img/pictures/02.png', url: window.url + 'img/pictures/02.jpg', pv: Math.floor ((Math.random () * 10) + 1), location: 1, position: { x: 0.0001643304293071, y: -369.09828822132, z: 0.00033049819431155 }, rotated: 1, next: '03', prev: '01', latitude: 22.997316666667, longitude: 120.19708888889 },
     { token: '03', cover: window.url + 'img/pictures/03.png', url: window.url + 'img/pictures/03.jpg', pv: Math.floor ((Math.random () * 10) + 1), location: 0, position: { x: 201.13054925961, y: 240.83197640446, z: -37.688548706924 }, rotated: 1, next: '04', prev: '02', latitude: -1, longitude: -1 },
     { token: '04', cover: window.url + 'img/pictures/04.png', url: window.url + 'img/pictures/04.jpg', pv: Math.floor ((Math.random () * 10) + 1), location: 0, position: { x: -0.00030697186576778, y: 316.45564486375, z: 7.6892449520424e-5 }, rotated: 1, next: '05', prev: '03', latitude: -1, longitude: -1 },

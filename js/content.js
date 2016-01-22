@@ -76,10 +76,13 @@ $(function () {
 
   function initPicture (token, b) {
     getPicture (token, function (result) {
-      $ball.empty ().nextAll ('#views, #share, #prev, #next').remove ();
+      console.error (result);
+      
+      $ball.empty ().nextAll ('#views, #share, #download, #prev, #next').remove ();
       if (b !== 1) window.showLoading ();
       $ball.add ($('<div />').attr ('id', 'views').addClass ('icon-eye2').text (result.picture.pv))
            .add ($('<button />').attr ('id', 'share').addClass ('icon-share2').attr ('title', '分享至臉書').data ('url', window.url + 'content.html#' + result.picture.token))
+           .add ($('<a />').attr ('id', 'download').addClass ('icon-download').attr ('title', '下載照片').attr ('href', result.picture.url).attr ('download', result.picture.token))
            .add (result.picture.prev ? $('<a />').attr ('id', 'prev').addClass ('icon-chevron-left').attr ('title', '上一張').attr ('href', window.url + 'content.html#' + result.picture.prev) : null)
            .add (result.picture.next ? $('<a />').attr ('id', 'next').addClass ('icon-chevron-right').attr ('title', '下一張').attr ('href', window.url + 'content.html#' + result.picture.next) : null)
            .prependTo (window.container);
