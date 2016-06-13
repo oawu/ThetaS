@@ -4,7 +4,7 @@
 ---
 <br/>
 ## 範例
-Demo: [http://works.ioa.tw/ThetaS/index.html](http://works.ioa.tw/ThetaS/index.html)
+Demo: [http://works.ioa.tw/ThetaS/](http://works.ioa.tw/ThetaS/)
 
 <br/>
 ## 聲明
