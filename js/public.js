@@ -22,7 +22,7 @@ if (ENV == 'dev') {
     getLocationUrl: 'http://dev.360.ioa.tw/api/github/location/',
   };
 } else {
-  window.url = 'http://works.ioa.tw/ThetaS/';
+  window.url = 'https://works.ioa.tw/ThetaS/';
   window.apis = {
     getPicturesUrl: 'http://360.ioa.tw/api/github/pictures/',
     getPictureUrl: 'http://360.ioa.tw/api/github/picture/',

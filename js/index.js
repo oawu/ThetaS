@@ -17,19 +17,20 @@ var imgLiquid=imgLiquid||{VER:"0.9.944"};imgLiquid.bgs_Available=!1,imgLiquid.bg
  */
 
 function getPictures (url, done) {
-  $.ajax ({
-    url: url ? url : window.apis.getPicturesUrl,
-    data: {},
-    async: true, cache: false, dataType: 'json', type: 'GET',
-    beforeSend: function () {}
-  })
-  .done (function (result) {
-    done (!result.status ? { status: true, pictures: window.pictures, pagination: '' } : result);
-  })
-  .fail (function (result) {
-    done ({ status: true, pictures: window.pictures, pagination: '' });
-  })
-  .complete (function (result) {});
+  // $.ajax ({
+  //   url: url ? url : window.apis.getPicturesUrl,
+  //   data: {},
+  //   async: true, cache: false, dataType: 'json', type: 'GET',
+  //   beforeSend: function () {}
+  // })
+  // .done (function (result) {
+  //   done (!result.status ? { status: true, pictures: window.pictures, pagination: '' } : result);
+  // })
+  // .fail (function (result) {
+  //   done ({ status: true, pictures: window.pictures, pagination: '' });
+  // })
+  // .complete (function (result) {});
+  done ({ status: true, pictures: window.pictures, pagination: '' });
 }
 function initPictures (url, $balls) {
   getPictures (url, function (result) {
